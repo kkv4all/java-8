@@ -19,3 +19,8 @@ Java 8 New feature practice
  - An interface with exactly one abstract method is called Functional Interface. _@FunctionalInterface_ annotation is added so that we can mark an interface as functional interface.
  
 Some of the useful java 8 functional interfaces are _**Consumer**_, _**Supplier**_, _**Function**_ and _**Predicate**_.
+
+## Default Method
+ - Java 8 introduced concept of default method implementation in interfaces. With default functions in interfaces, there is a possibility that a class is implementing two interfaces with same default methods.
+
+##
