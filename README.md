@@ -1,7 +1,7 @@
 # Java 8 Practice (Draft)
 Java 8 New feature practice
 
-##Lambda Expression
+## Lambda Expression
  - Lambda Expression is Characterrize by the following:
    - Optional Type Declaration
    - Optional parenthesis around parameter
@@ -15,4 +15,7 @@ Java 8 New feature practice
    - Instance Methods
    - Constructor using new operator
 
-##
+## Functional Interface
+ - An interface with exactly one abstract method is called Functional Interface. _@FunctionalInterface_ annotation is added so that we can mark an interface as functional interface.
+ 
+Some of the useful java 8 functional interfaces are _**Consumer**_, _**Supplier**_, _**Function**_ and _**Predicate**_.
