@@ -23,4 +23,10 @@ Some of the useful java 8 functional interfaces are _**Consumer**_, _**Supplier*
 ## Default Method
  - Java 8 introduced concept of default method implementation in interfaces. With default functions in interfaces, there is a possibility that a class is implementing two interfaces with same default methods.
 
-##
+## Stream
+ - Stream represents a sequence of objects from a source, with supports aggregate operations like _filter_, _map_, _limit_, _reduce_, _find_, _match_ and so on.
+ - Collection interface has two methods to generate a stream --
+ 	- _**stream()**_ - returns a sequential stream considering collection as its source.
+ 	- _**parallelStream()**_ - Returns  parallel Stream considering collection as its source.
+ 	
+## 
