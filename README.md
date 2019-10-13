@@ -33,6 +33,3 @@ Some of the useful java 8 functional interfaces are _**Consumer**_, _**Supplier*
  - Optional is a container object which is used to contain not-null objects. 
  - It is used to represent null with absent value. 
  - It has various utility methods to facilitate code to handle values as 'available' or 'not available' instead of checking null.
-
-## Nashorn Engine (jjs)
- With Java 8, Nashorn, a much improved javascript engine is introduced, to replace the existing Rhino. Nashorn provides 2 to 10 times better performance, as it directly compiles the code in memory and passes the bytecode to JVM. Nashorn uses invoke dynamics feature, introduced in Java 7 to improve performance.
