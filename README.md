@@ -29,4 +29,7 @@ Some of the useful java 8 functional interfaces are _**Consumer**_, _**Supplier*
  	- _**stream()**_ - returns a sequential stream considering collection as its source.
  	- _**parallelStream()**_ - Returns  parallel Stream considering collection as its source.
  	
-## 
+## Optional
+ - Optional is a container object which is used to contain not-null objects. 
+ - It is used to represent null with absent value. 
+ - It has various utility methods to facilitate code to handle values as 'available' or 'not available' instead of checking null.
