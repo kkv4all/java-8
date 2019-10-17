@@ -36,3 +36,14 @@ Some of the useful java 8 functional interfaces are _**Consumer**_, _**Supplier*
 
 ## Nashorn Engine (jjs)
  With Java 8, Nashorn, a much improved javascript engine is introduced, to replace the existing Rhino. Nashorn provides 2 to 10 times better performance, as it directly compiles the code in memory and passes the bytecode to JVM. Nashorn uses invoke dynamics feature, introduced in Java 7 to improve performance.
+
+## New Date API
+Old Date API (java.util.Date) had some drawback:
+ - Not thread safe
+ - Poor Design
+ - Difficult time zone handling
+New Date API Java8(java.time) provides some classes:
+ - Local - Simplified date-time API with no complexity of timezone handling.
+ - Zoned - Specialized date-time API to deal with various timezones.
+ 
+## 
