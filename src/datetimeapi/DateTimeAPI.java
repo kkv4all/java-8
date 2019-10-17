@@ -16,11 +16,17 @@ public class DateTimeAPI {
 	}
 
 	private void testZonedDateTime() {
-		ZonedDateTime zonedDateTime = ZonedDateTime.parse("2007-12-03T10:15:30+05:30");
+		ZonedDateTime zonedDateTime = ZonedDateTime.parse("2007-12-03T10:15:30+05:30[Asia/Calcutta]");
 		System.out.println("Zoned DateTime: "+ zonedDateTime);
 		
 		ZoneId zoneId = zonedDateTime.getZone();
 		System.out.println("Zone Id: "+zoneId);
+		
+		ZoneId id = ZoneId.of("Europe/Paris");
+		System.out.println("Paris zone: "+id);
+		
+		ZoneId currentZone = ZoneId.systemDefault();
+		System.out.println("Current Zone: "+ currentZone);
 	}
 
 	private void testLocalDateTime() {
