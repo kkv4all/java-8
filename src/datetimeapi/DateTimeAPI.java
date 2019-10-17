@@ -2,6 +2,7 @@ package datetimeapi;
 
 import java.time.DayOfWeek;
 import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -10,19 +11,43 @@ import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
+import java.util.function.BiConsumer;
 
 public class DateTimeAPI {
 	public static void main(String[] args) {
 		DateTimeAPI api = new DateTimeAPI();
+		PrintLine print = x -> System.out.println(String.format("===== %s =====",x));
 		
+		print.print("Local DateTime");
 		api.testLocalDateTime();
+		print.print("Zoned DateTime");
 		api.testZonedDateTime();
+		print.print("Chrono Unit");
 		api.testChronoUnit();
+		print.print("Periods");
 		api.testPeroids();
+		print.print("Duration");
 		api.testDuration();
+		print.print("Temporal Adjuster");
 		api.testAdjuster();
+		print.print("Backward Compatibility");
+		api.testBackwardCompatibility();
+	}
+
+	private void testBackwardCompatibility() {
+		Date currentDate = new Date();
+		System.out.println("Current Date: "+currentDate);
+		
+		Instant now = currentDate.toInstant();
+		ZoneId currentZone = ZoneId.systemDefault();
+		
+		LocalDateTime localDateTime = LocalDateTime.ofInstant(now, currentZone);
+		System.out.println("Local time:"+localDateTime);
+
+		ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(now, currentZone);
+		System.out.println("Zoned time:"+zonedDateTime);
 	}
 
 	private void testAdjuster() {
@@ -93,7 +118,7 @@ public class DateTimeAPI {
 		System.out.println("Current DateTime: " + currentTime);
 		
 		LocalDate localDate = currentTime.toLocalDate();
-		System.out.println("Cuurent Date(Local): "+ localDate);
+		System.out.println("Current Date(Local): "+ localDate);
 		
 		Month month = currentTime.getMonth();
 		DayOfWeek dayOfWeek = currentTime.getDayOfWeek();
@@ -105,5 +130,9 @@ public class DateTimeAPI {
 		
 		LocalDate dateWithValueSet = LocalDate.of(2014, Month.JANUARY, 1);
 		System.out.println("Set Date : " + dateWithValueSet);
+	}
+	
+	interface PrintLine {
+		void print(String s);
 	}
 }
