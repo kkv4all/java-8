@@ -1,12 +1,17 @@
 package datetimeapi;
 
 import java.time.DayOfWeek;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.Month;
+import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 
 public class DateTimeAPI {
 	public static void main(String[] args) {
@@ -15,6 +20,44 @@ public class DateTimeAPI {
 		api.testLocalDateTime();
 		api.testZonedDateTime();
 		api.testChronoUnit();
+		api.testPeroids();
+		api.testDuration();
+		api.testAdjuster();
+	}
+
+	private void testAdjuster() {
+		LocalDate today = LocalDate.now();
+		System.out.println("Current Date: "+ today);
+		
+		LocalDate nextTuesday = today.with(TemporalAdjusters.next(DayOfWeek.TUESDAY));
+		System.out.println("Next Tuesday: "+nextTuesday);
+		
+		LocalDate firstOfThisMonth = LocalDate.of(today.getYear(), today.getMonth(), 1);
+		LocalDate secondSaturdayOfMonth = firstOfThisMonth.with(TemporalAdjusters.nextOrSame(DayOfWeek.SATURDAY)).with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+		System.out.println("Second Saturday of this month: "+secondSaturdayOfMonth);
+	}
+
+	private void testDuration() {
+		LocalTime now = LocalTime.now();
+		System.out.println("Current Time: "+ now);
+		
+		LocalTime nextHour = now.plus(1,ChronoUnit.HOURS);
+		System.out.println("Next Week: "+nextHour);
+		
+		Duration duration = Duration.between(nextHour, now);
+		System.out.println("Duration: "+duration);
+		
+	}
+
+	private void testPeroids() {
+		LocalDate today = LocalDate.now();
+		System.out.println("Current Date: "+ today);
+		
+		LocalDate nextWeek = today.plus(1,ChronoUnit.WEEKS);
+		System.out.println("Next Week: "+nextWeek);
+
+		Period period = Period.between(nextWeek, today);
+		System.out.println("Period: "+period.getDays());
 	}
 
 	private void testChronoUnit() {
