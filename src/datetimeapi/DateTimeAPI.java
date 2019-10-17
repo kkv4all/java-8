@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class DateTimeAPI {
 	public static void main(String[] args) {
@@ -13,6 +14,21 @@ public class DateTimeAPI {
 		
 		api.testLocalDateTime();
 		api.testZonedDateTime();
+		api.testChronoUnit();
+	}
+
+	private void testChronoUnit() {
+		LocalDate today = LocalDate.now();
+		System.out.println("Current Date: "+ today);
+		
+		LocalDate nextWeek = today.plus(1,ChronoUnit.WEEKS);
+		System.out.println("Next Week: "+nextWeek);
+		
+		LocalDate nextMonth = today.plus(1,ChronoUnit.MONTHS);
+		System.out.println("Next Month: "+nextMonth);
+		
+		LocalDate nextYear = today.plus(1,ChronoUnit.YEARS);
+		System.out.println("Next Year: "+nextYear);
 	}
 
 	private void testZonedDateTime() {
