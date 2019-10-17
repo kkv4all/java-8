@@ -45,5 +45,9 @@ Old Date API (java.util.Date) had some drawback:
 New Date API Java8(java.time) provides some classes:
  - Local - Simplified date-time API with no complexity of timezone handling.
  - Zoned - Specialized date-time API to deal with various timezones.
+ - CronoUnit - Enum added to replace integer values used in old APIs to represent day,month etc.
+ - Period - It deals with date based amount of time.
+ - Duraton - It deals with time based amount of time.
+ - TemporalAdjusters - used to perform the date mathematics.
  
 ## 
