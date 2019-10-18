@@ -50,4 +50,8 @@ New Date API Java8(java.time) provides some classes:
  - Duraton - It deals with time based amount of time.
  - TemporalAdjusters - used to perform the date mathematics.
  
-## 
+## Base64 Class
+Java8 has added inbuild encoder and decoder for Base64 encoding. we can use 3 types of encoding:
+ - Simple 
+ - URL  
+ - MIME
