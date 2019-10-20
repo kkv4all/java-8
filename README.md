@@ -64,7 +64,7 @@ Java 8 introduced a new class Optional. It is a public final class and used to d
  
 [Simple Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/features/optional/OptionTest.java)
 
-##StringJoiner Class
+## StringJoiner Class
 Java 8 introduced a new final class StringJoiner in _**java.util**_ package. It is used to construct a sequence of characters separated by a delimiter. Now, you can create string by passing delimiters like comma(,), hyphen(-) etc. You can also pass prefix and suffix to the char sequence.
 
 [Simple Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/features/stringjoiner/StringJoinerTest.java)
