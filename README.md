@@ -16,12 +16,15 @@ Java 8 was released in 18th March 2014. It was a revolutionary release of the Ja
 Here in this repository I have added Some Java 8 features examples: 
 
 ## Lambda Expression
-Java 8 introduced very popular Lambda expressions. Lambda expressions gives the ability to pass a functionality as a method argument. Lambda expression help us reduce the code clutter in using a single method class.  
+Java 8 introduced very popular Lambda expressions. Lambda expressions gives the ability to pass a functionality as a method argument. Lambda expression help us reduce the code clutter in using a single method class.
+  
 Lambda Expression is Characterize by the following:
    - Optional Type Declaration
    - Optional parenthesis around parameter
    - Optional curly braces
    - Optional return statement
+
+[Simple Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/features/lambdaexp/LambdaExpression.java)
 
 ## Method Reference
  - Method reference helps to point to methods by their names. A method reference is described using :: symbol.
