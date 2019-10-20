@@ -1,4 +1,4 @@
-package base64;
+package com.java8.features.base64;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;

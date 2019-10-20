@@ -1,4 +1,4 @@
-package lamdaexp;
+package com.java8.features.lambdaexp;
 
 public class LambdaExpression {
 

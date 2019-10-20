@@ -1,12 +1,27 @@
-# Java 8 Practice (Draft)
-Java 8 New feature practice
+# Java 8 New Feature Practice
+Java 8 was released in 18th March 2014. It was a revolutionary release of the Java for software development platform. It includes various upgrades to the Java programming, JVM, Tools and libraries. Java 8 is one of the most feature packed release in the Java history.
+
+**Java 8 provides following New Features/Enhancements:**
+ - Lambda Expressions
+ - Method References,
+ - Functional Interfaces
+ - Default methods
+ - Streams and Pipelines
+ - Optional Class
+ - StringJoiner
+ - New Date API
+ - Base64 Class
+ - Nashorn Javascript Engine (jjs)
+
+Here in this repository I have added Some Java 8 features examples: 
 
 ## Lambda Expression
- - Lambda Expression is Characterrize by the following:
+Java 8 introduced very popular Lambda expressions. Lambda expressions gives the ability to pass a functionality as a method argument. Lambda expression help us reduce the code clutter in using a single method class.  
+Lambda Expression is Characterize by the following:
    - Optional Type Declaration
    - Optional parenthesis around parameter
-   - optional curly braces
-   - optional return statement
+   - Optional curly braces
+   - Optional return statement
 
 ## Method Reference
  - Method reference helps to point to methods by their names. A method reference is described using :: symbol.

@@ -1,4 +1,4 @@
-package datetimeapi;
+package com.java8.features.datetimeapi;
 
 import java.time.DayOfWeek;
 import java.time.Duration;

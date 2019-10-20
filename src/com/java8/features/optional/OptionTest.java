@@ -1,4 +1,4 @@
- package optional;
+ package com.java8.features.optional;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package methodref;
+package com.java8.features.methodref;
 
 import java.util.ArrayList;
 import java.util.List;

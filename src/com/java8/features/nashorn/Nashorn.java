@@ -1,4 +1,4 @@
-package nashorn;
+package com.java8.features.nashorn;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;

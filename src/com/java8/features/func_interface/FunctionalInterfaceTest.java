@@ -1,4 +1,4 @@
-package func_interface;
+package com.java8.features.func_interface;
 
 public class FunctionalInterfaceTest {
 

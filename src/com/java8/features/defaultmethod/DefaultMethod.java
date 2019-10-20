@@ -1,4 +1,4 @@
-package defaultmethod;
+package com.java8.features.defaultmethod;
 
 interface Vehicle {
 	default void display() {
