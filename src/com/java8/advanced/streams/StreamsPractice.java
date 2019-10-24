@@ -147,7 +147,7 @@ public class StreamsPractice {
 
 	private void getAllEmployeesNames() {
 		List<Employee> allEmployee = departments.stream()
-		.map(department -> department.getEmployees())
-		.collect(Collectors.toList()); //Compilation error: Type mismatch: cannot convert from List<List<Employee>> to List<Employee>
+		.flatMap(department -> department.getEmployees().stream())//flatMap function returns streams
+		.collect(Collectors.toList());
 	}
 }
