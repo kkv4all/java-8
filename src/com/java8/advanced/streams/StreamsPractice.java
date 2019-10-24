@@ -1,6 +1,7 @@
 package com.java8.advanced.streams;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -143,6 +144,7 @@ public class StreamsPractice {
 		StreamsPractice practice = new StreamsPractice();
 		
 		practice.getAllEmployeesNames();
+		practice.getAllEmployeesByExperience();
 	}
 
 	private void getAllEmployeesNames() {
@@ -152,5 +154,17 @@ public class StreamsPractice {
 		.collect(Collectors.toList());
 		
 		allEmployee.forEach(employee -> System.out.println(employee.getName()));
+	}
+
+	private void getAllEmployeesByExperience() {
+		System.out.println("List of All Employees Ordered by Experience: ");
+		List<Employee> allEmployee = departments.stream()
+				.flatMap(department -> department.getEmployees().stream())
+				.sorted(Comparator.comparing(Employee::getYears).reversed())
+				//sorted method need Object to have Comparator implemented and reversed function will reversed order
+				.collect(Collectors.toList());
+		
+		allEmployee.forEach(employee -> System.out.println(employee));
+		
 	}
 }
