@@ -20,7 +20,7 @@ public class StreamsPractice {
 			.earns(25000)
 			.build(),
 
-			anEmployee().named("John", "Doe")
+			anEmployee().named("Harris", "Ford")
 			.as(Position.DEVELOPER)
 			.withSkills("Java", "MySQL", "MSSQL", "Spring", "AngularJS")
 			.expericeOf(3)
@@ -62,7 +62,7 @@ public class StreamsPractice {
 			.earns(18000)
 			.build(),
 
-			anEmployee().named("Philip", "Branson")
+			anEmployee().named("Martha", "Vaughn")
 			.as(Position.DEV_OPS).withSkills("CentOS", "bash", "c", "puppet", "chef", "Ansible").earns(12500)
 			.build(),
 
@@ -146,8 +146,11 @@ public class StreamsPractice {
 	}
 
 	private void getAllEmployeesNames() {
+		System.out.println("Names of All Employees: ");
 		List<Employee> allEmployee = departments.stream()
 		.flatMap(department -> department.getEmployees().stream())//flatMap function returns streams
 		.collect(Collectors.toList());
+		
+		allEmployee.forEach(employee -> System.out.println(employee.getName()));
 	}
 }
