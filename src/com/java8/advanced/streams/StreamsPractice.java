@@ -2,6 +2,7 @@ package com.java8.advanced.streams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.java8.advanced.streams.model.Department;
 import com.java8.advanced.streams.model.Employee;
@@ -140,5 +141,13 @@ public class StreamsPractice {
 
 	public static void main(String[] args) {
 		StreamsPractice practice = new StreamsPractice();
+		
+		practice.getAllEmployeesNames();
+	}
+
+	private void getAllEmployeesNames() {
+		List<Employee> allEmployee = departments.stream()
+		.map(department -> department.getEmployees())
+		.collect(Collectors.toList()); //Compilation error: Type mismatch: cannot convert from List<List<Employee>> to List<Employee>
 	}
 }
