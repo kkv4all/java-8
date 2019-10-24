@@ -85,7 +85,7 @@ public class StreamsPractice {
 		departments = Arrays.asList(
 				new Department("Web Development",webDevs),
 				new Department("Windows Development",windowDevs),
-				new Department("Mobile Development Development",mobileDevs)
+				new Department("Mobile Development",mobileDevs)
 			);
 	}
 }
