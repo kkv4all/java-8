@@ -19,4 +19,9 @@ public class Department {
 	public List<Employee> getEmployees() {
 		return employees;
 	}
+	
+	@Override
+	public String toString() {
+		return "{name: " + name + ",Total Employees: " + employees.size() + ", employees: " + employees + "}";
+	}
 }

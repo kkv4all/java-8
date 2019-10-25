@@ -1,13 +1,16 @@
 package com.java8.advanced.streams;
 
+import static com.java8.advanced.streams.model.EmployeeBuilder.anEmployee;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.java8.advanced.streams.model.Department;
 import com.java8.advanced.streams.model.Employee;
-import static com.java8.advanced.streams.model.EmployeeBuilder.anEmployee;
 import com.java8.advanced.streams.model.Position;
 
 public class StreamsPractice {
@@ -143,8 +146,12 @@ public class StreamsPractice {
 	public static void main(String[] args) {
 		StreamsPractice practice = new StreamsPractice();
 		
+		//map, sort and collect
 		practice.getAllEmployeesNames();
 		practice.getAllEmployeesByExperience();
+		//find and match
+		practice.findAndMatchDepartments();
+		practice.findAndMatchEmployees();
 	}
 
 	private void getAllEmployeesNames() {
@@ -165,6 +172,52 @@ public class StreamsPractice {
 				.collect(Collectors.toList());
 		
 		allEmployee.forEach(employee -> System.out.println(employee));
+	}
+	
+	private void findAndMatchDepartments() {
+		Predicate<Department> departmentHaveMoreThan5Emp = department -> (department.getEmployees().size()>5);
+		Optional<Department> firstDepartmentHavingMoreThan5Employees = departments.stream()
+		.filter(departmentHaveMoreThan5Emp)
+		.findFirst();
 		
+		System.out.println("firstDepartmentHavingMoreThan5Employees: "+ firstDepartmentHavingMoreThan5Employees);
+		
+		boolean doesEveryDepartmentHaveMoreThan5Employees = departments.stream()
+				.allMatch(departmentHaveMoreThan5Emp);
+		System.out.println("doesEveryDepartmentHaveMoreThan5Employees: "+doesEveryDepartmentHaveMoreThan5Employees);
+		
+		boolean doesAnyDepartmentHaveMoreThan5Employees = departments.stream()
+				.anyMatch(departmentHaveMoreThan5Emp);
+		System.out.println("doesAnyDepartmentHaveMoreThan5Employees: "+doesAnyDepartmentHaveMoreThan5Employees);
+		
+		boolean notASingleDepartmentHasMoreThan5Employees = departments.stream()
+				.noneMatch(departmentHaveMoreThan5Emp);
+		System.out.println("notASingleDepartmentHasMoreThan5Employees: "+notASingleDepartmentHasMoreThan5Employees);
+	}
+	
+	private void findAndMatchEmployees() {
+		List<Employee> employees = departments.stream()
+				.flatMap(department -> department.getEmployees().stream())
+				.collect(Collectors.toList());
+		
+		Predicate<Employee> employeeWhoHave5YearsExp = employee -> (employee.getYears()>5);
+		
+		Optional<Employee> anyEmployeeWhoHave5YearsExp = employees.stream()
+		.filter(employeeWhoHave5YearsExp)
+		.findAny();
+		System.out.println("anyEmployeeWhoHave5YearsExp: "+ anyEmployeeWhoHave5YearsExp);
+		
+		Predicate<Employee> employeeHavingJavaSkillSet = employee -> employee.getSkills().contains("Java");
+		boolean doesEveryEmployeeHavingJavaSkillSet = employees.stream()
+				.allMatch(employeeHavingJavaSkillSet );
+		System.out.println("doesEveryEmployeeHavingJavaSkillSet: "+doesEveryEmployeeHavingJavaSkillSet);
+		
+		boolean doesAnyEmployeeHavingJavaSkillSet = employees.stream()
+				.anyMatch(employeeHavingJavaSkillSet);
+		System.out.println("doesAnyEmployeeHavingJavaSkillSet: "+doesAnyEmployeeHavingJavaSkillSet);
+		
+		boolean notASingleEmployeeHasJavaSkillSet = employees.stream()
+				.noneMatch(employeeHavingJavaSkillSet);
+		System.out.println("notASingleEmployeeHasJavaSkillSet : "+notASingleEmployeeHasJavaSkillSet);
 	}
 }
