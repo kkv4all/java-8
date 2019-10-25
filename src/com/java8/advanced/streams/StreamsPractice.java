@@ -5,7 +5,9 @@ import static com.java8.advanced.streams.model.EmployeeBuilder.anEmployee;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -152,6 +154,17 @@ public class StreamsPractice {
 		//find and match
 		practice.findAndMatchDepartments();
 		practice.findAndMatchEmployees();
+		//reduce
+		practice.countOfEmployee();
+		
+	}
+
+	private void countOfEmployee() {
+		int countOfAllEmployees = departments.stream()
+		.mapToInt(department -> department.getEmployees().size())
+		.reduce(0,(sum,count) -> sum+count);
+		
+		System.out.println("countOfAllEmployees: "+countOfAllEmployees);
 	}
 
 	private void getAllEmployeesNames() {
