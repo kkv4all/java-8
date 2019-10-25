@@ -7,7 +7,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -156,18 +155,12 @@ public class StreamsPractice {
 		practice.findAndMatchEmployees();
 		//reduce
 		practice.countOfEmployee();
-		
-	}
-
-	private void countOfEmployee() {
-		int countOfAllEmployees = departments.stream()
-		.mapToInt(department -> department.getEmployees().size())
-		.reduce(0,(sum,count) -> sum+count);
-		
-		System.out.println("countOfAllEmployees: "+countOfAllEmployees);
+		//filter, limit, min, max
+		practice.employeeStatastic();
 	}
 
 	private void getAllEmployeesNames() {
+		System.out.println("----------- map, flatMap, sort and collect ------------");
 		System.out.println("Names of All Employees: ");
 		List<Employee> allEmployee = departments.stream()
 		.flatMap(department -> department.getEmployees().stream())//flatMap function returns streams
@@ -188,6 +181,7 @@ public class StreamsPractice {
 	}
 	
 	private void findAndMatchDepartments() {
+		System.out.println("----------- find and match ------------");
 		Predicate<Department> departmentHaveMoreThan5Emp = department -> (department.getEmployees().size()>5);
 		Optional<Department> firstDepartmentHavingMoreThan5Employees = departments.stream()
 		.filter(departmentHaveMoreThan5Emp)
@@ -232,5 +226,60 @@ public class StreamsPractice {
 		boolean notASingleEmployeeHasJavaSkillSet = employees.stream()
 				.noneMatch(employeeHavingJavaSkillSet);
 		System.out.println("notASingleEmployeeHasJavaSkillSet : "+notASingleEmployeeHasJavaSkillSet);
+	}
+
+	private void countOfEmployee() {
+		System.out.println("----------- reduce ------------");
+		int countOfAllEmployees = departments.stream()
+				.mapToInt(department -> department.getEmployees().size())
+				.reduce(0,(sum,count) -> sum+count);
+		
+		System.out.println("countOfAllEmployees: "+countOfAllEmployees);
+	}
+	
+	private void employeeStatastic() {
+		System.out.println("----------- filter, limit, min, max ------------");
+		List<Employee> employees = departments.stream()
+				.flatMap(department -> department.getEmployees().stream())
+				.collect(Collectors.toList());
+		
+		Map<String, Integer> skillBreakups = employees.stream()
+				.flatMap(employee -> employee.getSkills().stream())
+				.collect(
+						Collectors.toMap(skill -> skill, //keyMapper Function
+								skill -> 1, //valueMapper Function
+								(count,skill)-> ((int)count+1) //mergeFunction operation to do in case of duplicate key
+								));
+		System.out.println("Skill Breakouts: "+skillBreakups);
+		
+		Map<String, Integer> positionBreakups = employees.stream()
+				.map(employee -> employee.getPosition().getName())
+				.collect(
+						Collectors.toMap(position -> position, //keyMapper Function
+								position -> 1, //valueMapper Function
+								(count,position)-> ((int)count+1) //mergeFunction operation to do in case of duplicate key
+								));
+		System.out.println("Position Breakouts: "+positionBreakups);
+		
+		List<Employee> employeeHasSalryMoreThan15K = employees.stream()
+				.filter(employee -> employee.getSalary()>15000)
+				.collect(Collectors.toList());
+		System.out.println("Employee has salry more than 15K: ");
+		employeeHasSalryMoreThan15K.forEach(System.out::println);
+		
+		List<Employee> top5SalaryEarner = employees.stream()
+				.sorted(Comparator.comparing(Employee::getSalary).reversed())
+				.limit(5)
+				.collect(Collectors.toList());
+		System.out.println("Top 5 Salary Earner: ");
+		top5SalaryEarner.forEach(System.out::println);
+		
+		Optional<Employee> mostExperiencedEmployee = employees.stream()
+				.max(Comparator.comparing(Employee::getYears));
+		System.out.println("Most experienced employee: " + mostExperiencedEmployee);
+		
+		Optional<Employee> lowestEarningEmployee = employees.stream()
+				.min(Comparator.comparing(Employee::getSalary));
+		System.out.println("Lowest earning employee: " + lowestEarningEmployee);
 	}
 }
