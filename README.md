@@ -57,7 +57,7 @@ Collection interface has two methods to generate a stream:
  - _**stream()**_ - Returns a sequential stream considering collection as its source.
  - _**parallelStream()**_ - Returns  parallel Stream considering collection as its source.
 
-[Simple Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/features/streams/Stream.java)
+[Simple Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/features/streams/Stream.java) | 
 [Detailed Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/advanced/streams/StreamsPractice.java)
 
 ## Optional Class
