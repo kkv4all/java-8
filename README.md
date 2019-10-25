@@ -58,6 +58,7 @@ Collection interface has two methods to generate a stream:
  - _**parallelStream()**_ - Returns  parallel Stream considering collection as its source.
 
 [Simple Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/features/streams/Stream.java)
+[Detailed Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/advanced/streams/StreamsPractice.java)
 
 ## Optional Class
 Java 8 introduced a new class Optional. It is a public final class and used to deal with NullPointerException in Java application. It also provides various utility methods to facilitate code to handle values as 'available' or 'not available' instead of checking null.
