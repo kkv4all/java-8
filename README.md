@@ -39,7 +39,7 @@ A method reference used to point the following type of methods -
 ## Functional Interface
 Functional interfaces are new additions in java 8 which permit exactly one abstract method inside them. These interfaces are also called _Single Abstract Method interfaces_ (SAM Interfaces). _@FunctionalInterface_ annotation is added so that we can mark an interface as functional interface and when the interface you have annotated violates the contracts of exactly one abstract method it will give compiler level errors .
  
-Some of the useful java 8 functional interfaces are _**Consumer**_, _**Supplier**_, _**Function**_ and _**Predicate**_.
+There are 43 functional interfaces java 8 have that can be categorized in four type _**Consumer**_, _**Supplier**_, _**Function**_ and _**Predicate**_. 
 
 [Simple Example](https://github.com/kkv4all/java-8-practice/blob/master/src/com/java8/features/func_interface/FunctionalInterfaceTest.java)
 
